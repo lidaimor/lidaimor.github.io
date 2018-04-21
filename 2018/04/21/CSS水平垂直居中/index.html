@@ -105,18 +105,18 @@
 
 
 
-<meta name="description" content="水平居中1.内联元素和文字&amp;lt;div&amp;gt;     &amp;lt;span&amp;gt;&amp;lt;/span&amp;gt; &amp;lt;/div&amp;gt;  div{text-align:center} 加在父元素上  把内联元素设置为block  1234span&amp;#123;display: block;text-align: center;&amp;#125;   2.块级元素123&amp;lt;div class=&quot;div1">
+<meta name="description" content="水平居中1.内联元素和文字&amp;lt;div&amp;gt;     &amp;lt;span&amp;gt;&amp;lt;/span&amp;gt; &amp;lt;/div&amp;gt;  div{text-align:center} 加在父元素上  把内联元素设置为block   1234span&amp;#123;display: block;text-align: center;&amp;#125; 2.块级元素123&amp;lt;div class=&quot;div1">
 <meta name="keywords" content="CSS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS水平垂直居中">
 <meta property="og:url" content="http://yoursite.com/2018/04/21/CSS水平垂直居中/index.html">
 <meta property="og:site_name" content="Lemon">
-<meta property="og:description" content="水平居中1.内联元素和文字&amp;lt;div&amp;gt;     &amp;lt;span&amp;gt;&amp;lt;/span&amp;gt; &amp;lt;/div&amp;gt;  div{text-align:center} 加在父元素上  把内联元素设置为block  1234span&amp;#123;display: block;text-align: center;&amp;#125;   2.块级元素123&amp;lt;div class=&quot;div1">
+<meta property="og:description" content="水平居中1.内联元素和文字&amp;lt;div&amp;gt;     &amp;lt;span&amp;gt;&amp;lt;/span&amp;gt; &amp;lt;/div&amp;gt;  div{text-align:center} 加在父元素上  把内联元素设置为block   1234span&amp;#123;display: block;text-align: center;&amp;#125; 2.块级元素123&amp;lt;div class=&quot;div1">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-21T06:15:16.084Z">
+<meta property="og:updated_time" content="2018-04-21T06:19:19.558Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS水平垂直居中">
-<meta name="twitter:description" content="水平居中1.内联元素和文字&amp;lt;div&amp;gt;     &amp;lt;span&amp;gt;&amp;lt;/span&amp;gt; &amp;lt;/div&amp;gt;  div{text-align:center} 加在父元素上  把内联元素设置为block  1234span&amp;#123;display: block;text-align: center;&amp;#125;   2.块级元素123&amp;lt;div class=&quot;div1">
+<meta name="twitter:description" content="水平居中1.内联元素和文字&amp;lt;div&amp;gt;     &amp;lt;span&amp;gt;&amp;lt;/span&amp;gt; &amp;lt;/div&amp;gt;  div{text-align:center} 加在父元素上  把内联元素设置为block   1234span&amp;#123;display: block;text-align: center;&amp;#125; 2.块级元素123&amp;lt;div class=&quot;div1">
 
 
 
@@ -375,9 +375,9 @@
 <li><p><code>div{text-align:center}</code> 加在父元素上</p>
 </li>
 <li><p>把内联元素设置为block</p>
- <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">span</span>&#123;</span><br><span class="line"><span class="attribute">display</span>: block;</span><br><span class="line"><span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">span</span>&#123;</span><br><span class="line"><span class="attribute">display</span>: block;</span><br><span class="line"><span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="2-块级元素"><a href="#2-块级元素" class="headerlink" title="2.块级元素"></a>2.块级元素</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div1 father"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div2 son"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.div1</span>&#123;<span class="attribute">width</span>: <span class="number">500px</span>;<span class="attribute">background-color</span>: yellow;<span class="attribute">height</span>: <span class="number">300px</span>;&#125;</span><br><span class="line"><span class="selector-class">.div2</span>&#123;<span class="attribute">width</span>: <span class="number">100px</span>;<span class="attribute">background-color</span>: pink;<span class="attribute">height</span>: <span class="number">100px</span>;&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="（1）子元素宽度已知"><a href="#（1）子元素宽度已知" class="headerlink" title="（1）子元素宽度已知"></a>（1）子元素宽度已知</h4><ol>
