@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-06-14T08:00:29.343Z</updated>
+  <updated>2018-06-14T08:16:40.101Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Canvas</title>
+    <link href="http://yoursite.com/2018/06/14/Canvas/"/>
+    <id>http://yoursite.com/2018/06/14/Canvas/</id>
+    <published>2018-06-14T08:11:42.000Z</published>
+    <updated>2018-06-14T08:16:40.101Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="绘制环境"><a href="#绘制环境" class="headerlink" title="绘制环境"></a>绘制环境</h2><pre><code>getContext(&apos;2d&apos;)：目前只支持2d场景不能在样式里设置宽高，否则变成等比缩放（包括里面画的内容也会等比缩放）</code></pre><h2 id="绘制图形："><a href="#绘制图形：" class="headerlink" title="绘制图形："></a>绘制图形：</h2><ol><li><p>绘制方块：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fillRect(L,T,W,H);  填充的方块</span><br><span class="line">strokeRect(L,T,W,H); 带边框的方块</span><br></pre></td></tr></table></figure></li><li><p>设置绘图：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fillStyle：填充颜色（绘制canvas是有顺序的）</span><br><span class="line">lineWidth：线宽度，是一个数值</span><br><span class="line">strokeStyle：边线颜色</span><br></pre></td></tr></table></figure></li><li><p>绘制路径：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">beginPath：开始绘制路径（防止后面设置影响上面绘图）</span><br><span class="line">closePath：结束绘制路径（闭合绘图）</span><br><span class="line">moveTo：移动到绘制的新目标点</span><br><span class="line">lineTo：新的目标点</span><br><span class="line">stroke：画线，默认黑色</span><br><span class="line">fill：填充，默认黑色</span><br><span class="line">rect：矩形区域（与fill组成fillRect方法）</span><br><span class="line">clearRect：删除一个画布的矩形区域</span><br><span class="line">save：保存路径（与restore一起组成一个设置区）</span><br><span class="line">restore：恢复路径</span><br></pre></td></tr></table></figure></li><li><p>绘制圆（圆弧）</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">arc(x,y,半径,起始弧度,结束弧度,旋转方向)</span><br><span class="line">x,y：起始圆心坐标</span><br><span class="line">起始位置在<span class="number">3</span>点钟位置</span><br><span class="line">弧度与角度的关系：弧度=角度*<span class="built_in">Math</span>.pi/<span class="number">180</span></span><br><span class="line">旋转方向：顺时针（默认：<span class="literal">false</span>）、逆时针（<span class="literal">true</span>）</span><br></pre></td></tr></table></figure></li><li><p>变换（与css3中的变化类似）：变换的是画布</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">translate（偏移）：从起始点为基准点，移动当前坐标位置</span><br><span class="line"> rotate（旋转）：参数为弧度（默认的旋转中心是左上角）</span><br><span class="line"> scale（缩放）：x，y方向缩放到原本大小的倍数</span><br></pre></td></tr></table></figure></li></ol><h3 id="用Canvas做时钟的原理："><a href="#用Canvas做时钟的原理：" class="headerlink" title="用Canvas做时钟的原理："></a>用Canvas做时钟的原理：</h3><ol><li>首先绘制小刻度，是由60个6度的圆弧拼成，类似于马车轮,半径为r</li><li>在同样的圆心位置绘制白色表盘，盖住圆弧中间的线，半径为r*19/20</li><li>跟步骤1类似，绘制12个角度为30度的圆弧，长度为r</li><li>跟步骤2类似，,绘制白色表盘，半径为r*18/20</li><li>绘制时针分针秒针，获取时间对象</li><li>计时器调用以上步骤<h3 id="Canvas特点："><a href="#Canvas特点：" class="headerlink" title="Canvas特点："></a>Canvas特点：</h3></li><li>Canvas提供的功能更原始，适合像素处理，动态渲染和大数据量绘制</li><li>Canvas 拥有多种绘制路径、矩形、圆形、字符以及添加图像的方法。</li><li>快速、轻量、灵活</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;绘制环境&quot;&gt;&lt;a href=&quot;#绘制环境&quot; class=&quot;headerlink&quot; title=&quot;绘制环境&quot;&gt;&lt;/a&gt;绘制环境&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;getContext(&amp;apos;2d&amp;apos;)：目前只支持2d场景
+不能在样式里设置宽高，否则变成等比
+      
+    
+    </summary>
+    
+      <category term="HTML5" scheme="http://yoursite.com/categories/HTML5/"/>
+    
+    
+      <category term="html5" scheme="http://yoursite.com/tags/html5/"/>
+    
+      <category term="js" scheme="http://yoursite.com/tags/js/"/>
+    
+  </entry>
   
   <entry>
     <title></title>
