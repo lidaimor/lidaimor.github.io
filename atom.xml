@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-21T06:19:19.558Z</updated>
+  <updated>2018-06-14T07:50:46.848Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2018/06/14/HTML5%E4%B9%8BCanvas/"/>
+    <id>http://yoursite.com/2018/06/14/HTML5之Canvas/</id>
+    <published>2018-06-14T07:49:32.283Z</published>
+    <updated>2018-06-14T07:50:46.848Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="���ƻ���"><a href="#���ƻ���" class="headerlink" title="���ƻ���"></a>���ƻ���</h2><pre><code>getContext(&apos;2d&apos;)��Ŀǰֻ֧��2d������������ʽ�����ÿ�ߣ������ɵȱ����ţ��������滭������Ҳ��ȱ����ţ�</code></pre><h2 id="����ͼ�Σ�"><a href="#����ͼ�Σ�" class="headerlink" title="����ͼ�Σ�"></a>����ͼ�Σ�</h2><ol><li><p>���Ʒ��飺</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fillRect(L,T,W,H);  ���ķ���</span><br><span class="line">strokeRect(L,T,W,H); ���߿�ķ���</span><br></pre></td></tr></table></figure></li><li><p>���û�ͼ��</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fillStyle�������ɫ������canvas����˳��ģ�</span><br><span class="line">lineWidth���߿�ȣ���һ����ֵ</span><br><span class="line">strokeStyle��������ɫ</span><br></pre></td></tr></table></figure></li><li><p>����·����</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">beginPath����ʼ����·������ֹ��������Ӱ�������ͼ��</span><br><span class="line">closePath����������·�����պϻ�ͼ��</span><br><span class="line">moveTo���ƶ������Ƶ���Ŀ���</span><br><span class="line">lineTo���µ�Ŀ���</span><br><span class="line">stroke�����ߣ�Ĭ�Ϻ�ɫ</span><br><span class="line">fill����䣬Ĭ�Ϻ�ɫ</span><br><span class="line">rect������������fill���fillRect������</span><br><span class="line">clearRect��ɾ��һ�������ľ�������</span><br><span class="line">save������·������restoreһ�����һ����������</span><br><span class="line">restore���ָ�·��</span><br></pre></td></tr></table></figure></li><li><p>����Բ��Բ����</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">arc(x,y,�뾶,��ʼ����,��������,��ת����)</span><br><span class="line">x,y����ʼԲ������</span><br><span class="line">��ʼλ����<span class="number">3</span>����λ��</span><br><span class="line">������ǶȵĹ�ϵ������=�Ƕ�*<span class="built_in">Math</span>.pi/<span class="number">180</span></span><br><span class="line">��ת����˳ʱ�루Ĭ�ϣ�<span class="literal">false</span>������ʱ�루<span class="literal">true</span>��</span><br></pre></td></tr></table></figure></li><li><p>�任����css3�еı仯���ƣ����任���ǻ���</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">translate��ƫ�ƣ�������ʼ��Ϊ��׼�㣬�ƶ���ǰ����λ��</span><br><span class="line"> rotate����ת��������Ϊ���ȣ�Ĭ�ϵ���ת���������Ͻǣ�</span><br><span class="line"> scale�����ţ���x��y�������ŵ�ԭ����С�ı���</span><br></pre></td></tr></table></figure></li></ol><h3 id="��Canvas��ʱ�ӵ�ԭ��"><a href="#��Canvas��ʱ�ӵ�ԭ��" class="headerlink" title="��Canvas��ʱ�ӵ�ԭ��"></a>��Canvas��ʱ�ӵ�ԭ��</h3><ol><li>���Ȼ���С�̶ȣ�����60��6�ȵ�Բ��ƴ�ɣ�����������,�뾶Ϊr</li><li>��ͬ����Բ��λ�û��ư�ɫ���̣���סԲ���м���ߣ��뾶Ϊr*19/20</li><li>������1���ƣ�����12���Ƕ�Ϊ30�ȵ�Բ��������Ϊr</li><li>������2���ƣ�,���ư�ɫ���̣��뾶Ϊr*18/20</li><li>����ʱ��������룬��ȡʱ�����</li><li>��ʱ���������ϲ���<h3 id="Canvas�ص㣺"><a href="#Canvas�ص㣺" class="headerlink" title="Canvas�ص㣺"></a>Canvas�ص㣺</h3></li><li>Canvas�ṩ�Ĺ��ܸ�ԭʼ���ʺ����ش�����̬��Ⱦ�ʹ�����������</li><li>Canvas ӵ�ж��ֻ���·�������Ρ�Բ�Ρ��ַ��Լ����ͼ��ķ�����</li><li>���١����������</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;���ƻ���&quot;&gt;&lt;a href=&quot;#���ƻ���&quot; class=&quot;headerlink&quot; title=&quot;���ƻ���&quot;&gt;&lt;/a&gt;���ƻ���&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;getContext(&amp;apos;2d&amp;apos;)��Ŀǰֻ֧��2d����
+�
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>CSS水平垂直居中</title>
