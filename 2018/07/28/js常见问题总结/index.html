@@ -92,7 +92,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="javascript," />
 
 
 
@@ -105,16 +105,18 @@
 
 
 
-<meta name="description" content="没有比脚更长的路！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Lemon">
-<meta property="og:url" content="http://yoursite.com/tags/css/index.html">
+<meta name="description" content="渲染引擎：Firefox使用Geoko  ——Mozilla自主研发的渲染引擎 Safari和Chrome都使用webkit ——Webkit是一款开源渲染引擎 浏览器的渲染过程主要包括以下几步：123451. 解析HTML生成DOM树。2. 解析CSS生成CSSOM规则树。3. 将DOM树与CSSOM规则树合并在一起生成渲染树。4. 遍历渲染树开始布局，计算每个节点的位置大小信息。5. 将渲染树">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浏览器的渲染过程">
+<meta property="og:url" content="http://yoursite.com/2018/07/28/js常见问题总结/index.html">
 <meta property="og:site_name" content="Lemon">
-<meta property="og:description" content="没有比脚更长的路！">
+<meta property="og:description" content="渲染引擎：Firefox使用Geoko  ——Mozilla自主研发的渲染引擎 Safari和Chrome都使用webkit ——Webkit是一款开源渲染引擎 浏览器的渲染过程主要包括以下几步：123451. 解析HTML生成DOM树。2. 解析CSS生成CSSOM规则树。3. 将DOM树与CSSOM规则树合并在一起生成渲染树。4. 遍历渲染树开始布局，计算每个节点的位置大小信息。5. 将渲染树">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-28T03:53:42.453Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Lemon">
-<meta name="twitter:description" content="没有比脚更长的路！">
+<meta name="twitter:title" content="浏览器的渲染过程">
+<meta name="twitter:description" content="渲染引擎：Firefox使用Geoko  ——Mozilla自主研发的渲染引擎 Safari和Chrome都使用webkit ——Webkit是一款开源渲染引擎 浏览器的渲染过程主要包括以下几步：123451. 解析HTML生成DOM树。2. 解析CSS生成CSSOM规则树。3. 将DOM树与CSSOM规则树合并在一起生成渲染树。4. 遍历渲染树开始布局，计算每个节点的位置大小信息。5. 将渲染树">
 
 
 
@@ -144,13 +146,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/css/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/28/js常见问题总结/"/>
 
 
 
 
 
-  <title>标签: css | Lemon</title>
+  <title>浏览器的渲染过程 | Lemon</title>
   
 
 
@@ -168,7 +170,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     <a href="https://github.com/lidaimor" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 
@@ -263,82 +265,181 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>css<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/28/js常见问题总结/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lemon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/img/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lemon">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/04/16/html-css常见问题总结/" itemprop="url">
-              
-                <span itemprop="name">html+css常见问题总结</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">浏览器的渲染过程</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-16T17:26:14+08:00"
-              content="2018-04-16" >
-          04-16
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-28T11:58:12+08:00">
+                2018-07-28
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
+      
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/28/css/" itemprop="url">
-              
-                <span itemprop="name">浮动和清除</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-28T17:46:47+08:00"
-              content="2018-03-28" >
-          03-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h3 id="渲染引擎："><a href="#渲染引擎：" class="headerlink" title="渲染引擎："></a>渲染引擎：</h3><pre><code>Firefox使用Geoko  ——Mozilla自主研发的渲染引擎
+Safari和Chrome都使用webkit ——Webkit是一款开源渲染引擎
+</code></pre><h3 id="浏览器的渲染过程主要包括以下几步："><a href="#浏览器的渲染过程主要包括以下几步：" class="headerlink" title="浏览器的渲染过程主要包括以下几步："></a>浏览器的渲染过程主要包括以下几步：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. 解析HTML生成DOM树。</span><br><span class="line">2. 解析CSS生成CSSOM规则树。</span><br><span class="line">3. 将DOM树与CSSOM规则树合并在一起生成渲染树。</span><br><span class="line">4. 遍历渲染树开始布局，计算每个节点的位置大小信息。</span><br><span class="line">5. 将渲染树每个节点绘制到屏幕。</span><br></pre></td></tr></table></figure>
+<h4 id="构建DOM树"><a href="#构建DOM树" class="headerlink" title="构建DOM树"></a>构建DOM树</h4><pre><code>当浏览器接收到服务器响应来的HTML文档后，会遍历文档节点，生成DOM树。
+需要注意的是，DOM树的生成过程中可能会被CSS和JS的加载执行阻塞。
+构建CSSOM规则树
+浏览器解析CSS文件并生成CSS规则树，每个CSS文件都被分析成一个StyleSheet对象
+每个对象都包含CSS规则。CSS规则对象包含对应于CSS语法的选择器和声明对象以及其他对象。
+</code></pre><h4 id="渲染阻塞"><a href="#渲染阻塞" class="headerlink" title="渲染阻塞"></a>渲染阻塞</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">当浏览器遇到一个script标记时，DOM构建将暂停，直至脚本完成执行，然后继续构建DOM。</span><br><span class="line">每次去执行JavaScript脚本都会严重地阻塞DOM树的构建，如果JavaScript脚本还操作了CSSOM，</span><br><span class="line">而正好这个CSSOM还没有下载和构建，浏览器甚至会延迟脚本执行和构建DOM，直至完成其CSSOM的</span><br><span class="line">下载和构建。</span><br><span class="line">所以，script 标签的位置很重要。</span><br></pre></td></tr></table></figure>
+<h5 id="实际使用时，可以遵循下面两个原则："><a href="#实际使用时，可以遵循下面两个原则：" class="headerlink" title="实际使用时，可以遵循下面两个原则："></a>实际使用时，可以遵循下面两个原则：</h5><pre><code>CSS 优先：引入顺序上，CSS 资源先于 JavaScript 资源。
+JS置后：我们通常把JS代码放到页面底部，且JavaScript 应尽量少影响 DOM 的构建。
+</code></pre><h3 id="构建渲染树"><a href="#构建渲染树" class="headerlink" title="构建渲染树"></a>构建渲染树</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">通过DOM树和CSS规则树我们便可以构建渲染树。浏览器会先从DOM树的根节点开始遍历每个</span><br><span class="line">可见节点。对每个可见节点，找到其适配的CSS样式规则并应用。</span><br></pre></td></tr></table></figure>
+<h3 id="渲染树绘制"><a href="#渲染树绘制" class="headerlink" title="渲染树绘制"></a>渲染树绘制</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在绘制阶段，遍历渲染树，调用渲染器的paint()方法在屏幕上显示其内容。渲染树的绘制</span><br><span class="line">工作是由浏览器的UI后端组件完成的。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">replaint（重绘）：屏幕的一部分重画，不影响整体布局，比如某个CSS的背景色变了，但</span><br><span class="line">元素的几何尺寸和位置不变。</span><br><span class="line">reflow（回流）： 意味着元件的几何尺寸变了，我们需要重新验证并计算渲染树。是渲染</span><br><span class="line">树的一部分或全部发生了变化。这就是Reflow，或是Layout。</span><br><span class="line"></span><br><span class="line">有些情况下，比如修改了元素的样式，浏览器并不会立刻 reflow 或 repaint一次，</span><br><span class="line">而是会把这样的操作积攒一批，然后做一次 reflow，这又叫异步 reflow或增量异步 reflow。</span><br><span class="line">有些情况下，比如 resize窗口，改变了页面默认的字体等。</span><br><span class="line">对于这些操作，浏览器会马上进行 reflow。</span><br></pre></td></tr></table></figure>
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/14/Canvas/" rel="next" title="Canvas">
+                <i class="fa fa-chevron-left"></i> Canvas
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -346,6 +447,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -366,8 +471,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -454,6 +568,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#渲染引擎："><span class="nav-number">1.</span> <span class="nav-text">渲染引擎：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器的渲染过程主要包括以下几步："><span class="nav-number">2.</span> <span class="nav-text">浏览器的渲染过程主要包括以下几步：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#构建DOM树"><span class="nav-number">2.1.</span> <span class="nav-text">构建DOM树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#渲染阻塞"><span class="nav-number">2.2.</span> <span class="nav-text">渲染阻塞</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#实际使用时，可以遵循下面两个原则："><span class="nav-number">2.2.1.</span> <span class="nav-text">实际使用时，可以遵循下面两个原则：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构建渲染树"><span class="nav-number">3.</span> <span class="nav-text">构建渲染树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#渲染树绘制"><span class="nav-number">4.</span> <span class="nav-text">渲染树绘制</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -602,6 +732,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -716,13 +850,13 @@
       var articles = db.collection('articles')
 
       //https://hexo.io/zh-tw/docs/variables.html
-      var isPost = ''.length > 0
+      var isPost = '浏览器的渲染过程'.length > 0
       var isArchive = '' === 'true'
       var isCategory = ''.length > 0
       var isTag = ''.length > 0
 
       if (isPost) { //is article page
-        var title = ''
+        var title = '浏览器的渲染过程'
         var doc = articles.doc(title)
 
         getCount(doc, true).then(appendCountTo($('.post-meta')))
@@ -730,7 +864,7 @@
       else if (!isArchive && !isCategory && !isTag) { //is index page
         var titles = [] //array to titles
 
-        var postsstr = 'titles.push("html+css常见问题总结");titles.push("浮动和清除");' //if you have a better way to get titles of posts, please change it
+        var postsstr = '' //if you have a better way to get titles of posts, please change it
         eval(postsstr)
 
         var promises = titles.map(function (title) {

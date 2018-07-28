@@ -278,6 +278,160 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/28/js常见问题总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lemon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/img/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lemon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/28/js常见问题总结/" itemprop="url">浏览器的渲染过程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-28T11:58:12+08:00">
+                2018-07-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="渲染引擎："><a href="#渲染引擎：" class="headerlink" title="渲染引擎："></a>渲染引擎：</h3><pre><code>Firefox使用Geoko  ——Mozilla自主研发的渲染引擎
+Safari和Chrome都使用webkit ——Webkit是一款开源渲染引擎
+</code></pre><h3 id="浏览器的渲染过程主要包括以下几步："><a href="#浏览器的渲染过程主要包括以下几步：" class="headerlink" title="浏览器的渲染过程主要包括以下几步："></a>浏览器的渲染过程主要包括以下几步：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. 解析HTML生成DOM树。</span><br><span class="line">2. 解析CSS生成CSSOM规则树。</span><br><span class="line">3. 将DOM树与CSSOM规则树合并在一起生成渲染树。</span><br><span class="line">4. 遍历渲染树开始布局，计算每个节点的位置大小信息。</span><br><span class="line">5. 将渲染树每个节点绘制到屏幕。</span><br></pre></td></tr></table></figure>
+<h4 id="构建DOM树"><a href="#构建DOM树" class="headerlink" title="构建DOM树"></a>构建DOM树</h4><pre><code>当浏览器接收到服务器响应来的HTML文档后，会遍历文档节点，生成DOM树。
+需要注意的是，DOM树的生成过程中可能会被CSS和JS的加载执行阻塞。
+构建CSSOM规则树
+浏览器解析CSS文件并生成CSS规则树，每个CSS文件都被分析成一个StyleSheet对象
+每个对象都包含CSS规则。CSS规则对象包含对应于CSS语法的选择器和声明对象以及其他对象。
+</code></pre><h4 id="渲染阻塞"><a href="#渲染阻塞" class="headerlink" title="渲染阻塞"></a>渲染阻塞</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">当浏览器遇到一个script标记时，DOM构建将暂停，直至脚本完成执行，然后继续构建DOM。</span><br><span class="line">每次去执行JavaScript脚本都会严重地阻塞DOM树的构建，如果JavaScript脚本还操作了CSSOM，</span><br><span class="line">而正好这个CSSOM还没有下载和构建，浏览器甚至会延迟脚本执行和构建DOM，直至完成其CSSOM的</span><br><span class="line">下载和构建。</span><br><span class="line">所以，script 标签的位置很重要。</span><br></pre></td></tr></table></figure>
+<h5 id="实际使用时，可以遵循下面两个原则："><a href="#实际使用时，可以遵循下面两个原则：" class="headerlink" title="实际使用时，可以遵循下面两个原则："></a>实际使用时，可以遵循下面两个原则：</h5><pre><code>CSS 优先：引入顺序上，CSS 资源先于 JavaScript 资源。
+JS置后：我们通常把JS代码放到页面底部，且JavaScript 应尽量少影响 DOM 的构建。
+</code></pre><h3 id="构建渲染树"><a href="#构建渲染树" class="headerlink" title="构建渲染树"></a>构建渲染树</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">通过DOM树和CSS规则树我们便可以构建渲染树。浏览器会先从DOM树的根节点开始遍历每个</span><br><span class="line">可见节点。对每个可见节点，找到其适配的CSS样式规则并应用。</span><br></pre></td></tr></table></figure>
+<h3 id="渲染树绘制"><a href="#渲染树绘制" class="headerlink" title="渲染树绘制"></a>渲染树绘制</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在绘制阶段，遍历渲染树，调用渲染器的paint()方法在屏幕上显示其内容。渲染树的绘制</span><br><span class="line">工作是由浏览器的UI后端组件完成的。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">replaint（重绘）：屏幕的一部分重画，不影响整体布局，比如某个CSS的背景色变了，但</span><br><span class="line">元素的几何尺寸和位置不变。</span><br><span class="line">reflow（回流）： 意味着元件的几何尺寸变了，我们需要重新验证并计算渲染树。是渲染</span><br><span class="line">树的一部分或全部发生了变化。这就是Reflow，或是Layout。</span><br><span class="line"></span><br><span class="line">有些情况下，比如修改了元素的样式，浏览器并不会立刻 reflow 或 repaint一次，</span><br><span class="line">而是会把这样的操作积攒一批，然后做一次 reflow，这又叫异步 reflow或增量异步 reflow。</span><br><span class="line">有些情况下，比如 resize窗口，改变了页面默认的字体等。</span><br><span class="line">对于这些操作，浏览器会马上进行 reflow。</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/14/Canvas/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -594,125 +748,6 @@
 </ol>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.father</span>&#123; </span><br><span class="line">    <span class="attribute">position</span>: relative; </span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.son</span>&#123; </span><br><span class="line">    <span class="attribute">position</span>: absolute; </span><br><span class="line">    <span class="attribute">top</span>:<span class="number">50%</span>; </span><br><span class="line">    <span class="attribute">transform</span>:<span class="built_in">translateY</span>(-50%); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/17/js常见问题总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lemon">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/img/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lemon">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/17/js常见问题总结/" itemprop="url">js常见问题总结</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-17T12:58:12+08:00">
-                2018-04-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
           
         
       
@@ -1468,7 +1503,7 @@ git remote add origin https://github.com/guyibang/TEST2.git将本地仓库和远
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1790,7 +1825,7 @@ git remote add origin https://github.com/guyibang/TEST2.git将本地仓库和远
       else if (!isArchive && !isCategory && !isTag) { //is index page
         var titles = [] //array to titles
 
-        var postsstr = 'titles.push("Canvas");titles.push("CSS水平垂直居中");titles.push("js常见问题总结");titles.push("html+css常见问题总结");titles.push("js中DOM的属性和操作");titles.push("浮动和清除");titles.push("搭建博客记录");' //if you have a better way to get titles of posts, please change it
+        var postsstr = 'titles.push("浏览器的渲染过程");titles.push("Canvas");titles.push("CSS水平垂直居中");titles.push("html+css常见问题总结");titles.push("js中DOM的属性和操作");titles.push("浮动和清除");titles.push("搭建博客记录");' //if you have a better way to get titles of posts, please change it
         eval(postsstr)
 
         var promises = titles.map(function (title) {
