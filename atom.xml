@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-07-28T03:53:42.453Z</updated>
+  <updated>2018-08-28T16:49:49.313Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>�����ǳ����</title>
+    <link href="http://yoursite.com/2018/08/29/%E6%B7%B1%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B5%85%E6%8B%B7%E8%B4%9D/"/>
+    <id>http://yoursite.com/2018/08/29/深拷贝和浅拷贝/</id>
+    <published>2018-08-29T12:38:48.000Z</published>
+    <updated>2018-08-28T16:49:49.313Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="dz���������"><a href="#dz���������" class="headerlink" title="ǳ���������"></a>ǳ���������</h3><ul><li>ǳ����������B������A�����޸�Aʱ�����BҲ���ű��ˣ�˵������ǳ����</li><li>��������B�������ı䣬˵������ǳ����</li><li>��������–��ֵ�洢��ջ�ڴ���</li><li>������������–������ջ�ڴ��У�ֵ�����ڶ��ڴ���<h4 id="��������ַ�����"><a href="#��������ַ�����" class="headerlink" title="��������ַ�����"></a>��������ַ�����</h4>������ǿ�����������㼶������<h5 id="��1���ݹ�"><a href="#��1���ݹ�" class="headerlink" title="��1���ݹ�"></a>��1���ݹ�</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepClone</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> objClone = <span class="built_in">Array</span>.isArray(obj)?[]:&#123;&#125;;</span><br><span class="line">    <span class="keyword">if</span>(obj &amp;&amp; <span class="keyword">typeof</span> obj===<span class="string">"object"</span>)&#123;</span><br><span class="line">        <span class="keyword">for</span>(key <span class="keyword">in</span> obj)&#123;</span><br><span class="line">            <span class="keyword">if</span>(obj.hasOwnProperty(key))&#123;</span><br><span class="line">                <span class="comment">//�ж�ojb��Ԫ���Ƿ�Ϊ��������ǣ��ݹ鸴��</span></span><br><span class="line">                <span class="keyword">if</span>(obj[key]&amp;&amp;<span class="keyword">typeof</span> obj[key] ===<span class="string">"object"</span>)&#123;</span><br><span class="line">                    objClone[key] = deepClone(obj[key]);</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="comment">//������ǣ��򵥸���</span></span><br><span class="line">                    objClone[key] = obj[key];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> objClone;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul><p>concat������sliceҲ������������������Ƕ��������������</p><h5 id="��2������JSON�����parse��stringify"><a href="#��2������JSON�����parse��stringify" class="headerlink" title="��2������JSON�����parse��stringify"></a>��2������JSON�����parse��stringify</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">##### ��3������JQ��extend������</span><br><span class="line">``` $.extend( [deep ], target, object1 [, objectN ] )</span><br></pre></td></tr></table></figure><p>deep��ʾ�Ƿ������ΪtrueΪ�����Ϊfalse����Ϊǳ����<br>target Object���� Ŀ�������������ĳ�Ա���Խ������ӵ��ö����ϡ�<br>object1  objectN��ѡ�� Object���� ��һ���Լ���N�����ϲ��Ķ���<br>let a=[0,1,[2,3],4],<br>    b=$.extend(true,[],a);<br>a[0]=1;<br>a[2][0]=1;<br>console.log(a,b);</p><blockquote><p>�����̨������һ�����ݣ�����Ҫ����������������������˿�������£�����û�취��ȷ��������Ƿ�����������Ҳ��Ҫʹ�ã�ֱ���޸Ŀ��ܻ�����������⣬����ܰ������ȫ���ĵ�ȥ�������ݣ�����ʵ�������ʹ�������</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;dz���������&quot;&gt;&lt;a href=&quot;#dz���������&quot; class=&quot;headerlink&quot; title=&quot;ǳ���������&quot;&gt;&lt;/a&gt;ǳ���������&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ǳ����������B������A�����޸�
+      
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+      <category term="JQuery" scheme="http://yoursite.com/tags/JQuery/"/>
+    
+  </entry>
   
   <entry>
     <title>浏览器的渲染过程</title>
