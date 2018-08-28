@@ -749,9 +749,7 @@
 
 </body>
 </html>
-oc)
-        })
-        Promise.all(promises).then(function (counts) {
+ Promise.all(promises).then(function (counts) {
           var metas = $('.post-meta')
           counts.forEach(function (val, idx) {
             appendCountTo(metas[idx])(val)

@@ -297,7 +297,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/08/29/深拷贝和浅拷贝/" itemprop="url">�����ǳ����</a></h1>
+                <a class="post-title-link" href="/2018/08/29/深拷贝和浅拷贝/" itemprop="url">深拷贝和浅拷贝</a></h1>
         
 
         <div class="post-meta">
@@ -371,18 +371,18 @@
       
         
           
-            <h3 id="dz���������"><a href="#dz���������" class="headerlink" title="ǳ���������"></a>ǳ���������</h3><ul>
-<li>ǳ����������B������A�����޸�Aʱ�����BҲ���ű��ˣ�˵������ǳ����</li>
-<li>��������B�������ı䣬˵������ǳ����</li>
-<li>��������–��ֵ�洢��ջ�ڴ���</li>
-<li>������������–������ջ�ڴ��У�ֵ�����ڶ��ڴ���<h4 id="��������ַ�����"><a href="#��������ַ�����" class="headerlink" title="��������ַ�����"></a>��������ַ�����</h4>������ǿ�����������㼶������<h5 id="��1���ݹ�"><a href="#��1���ݹ�" class="headerlink" title="��1���ݹ�"></a>��1���ݹ�</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepClone</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> objClone = <span class="built_in">Array</span>.isArray(obj)?[]:&#123;&#125;;</span><br><span class="line">    <span class="keyword">if</span>(obj &amp;&amp; <span class="keyword">typeof</span> obj===<span class="string">"object"</span>)&#123;</span><br><span class="line">        <span class="keyword">for</span>(key <span class="keyword">in</span> obj)&#123;</span><br><span class="line">            <span class="keyword">if</span>(obj.hasOwnProperty(key))&#123;</span><br><span class="line">                <span class="comment">//�ж�ojb��Ԫ���Ƿ�Ϊ��������ǣ��ݹ鸴��</span></span><br><span class="line">                <span class="keyword">if</span>(obj[key]&amp;&amp;<span class="keyword">typeof</span> obj[key] ===<span class="string">"object"</span>)&#123;</span><br><span class="line">                    objClone[key] = deepClone(obj[key]);</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="comment">//������ǣ��򵥸���</span></span><br><span class="line">                    objClone[key] = obj[key];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> objClone;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <h3 id="浅拷贝和深拷贝"><a href="#浅拷贝和深拷贝" class="headerlink" title="浅拷贝和深拷贝"></a>浅拷贝和深拷贝</h3><ul>
+<li>浅拷贝：假设B复制了A，当修改A时，如果B也跟着变了，说明这是浅拷贝</li>
+<li>深拷贝：如果B不发生改变，说明这是浅拷贝</li>
+<li>基本类型–名值存储在栈内存中</li>
+<li>引用数据类型–名存在栈内存中，值存在于堆内存中<h4 id="深拷贝的三种方法："><a href="#深拷贝的三种方法：" class="headerlink" title="深拷贝的三种方法："></a>深拷贝的三种方法：</h4>深拷贝，是拷贝对象各个层级的属性<h5 id="（1）递归"><a href="#（1）递归" class="headerlink" title="（1）递归"></a>（1）递归</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepClone</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> objClone = <span class="built_in">Array</span>.isArray(obj)?[]:&#123;&#125;;</span><br><span class="line">    <span class="keyword">if</span>(obj &amp;&amp; <span class="keyword">typeof</span> obj===<span class="string">"object"</span>)&#123;</span><br><span class="line">        <span class="keyword">for</span>(key <span class="keyword">in</span> obj)&#123;</span><br><span class="line">            <span class="keyword">if</span>(obj.hasOwnProperty(key))&#123;</span><br><span class="line">                <span class="comment">//判断ojb子元素是否为对象，如果是，递归复制</span></span><br><span class="line">                <span class="keyword">if</span>(obj[key]&amp;&amp;<span class="keyword">typeof</span> obj[key] ===<span class="string">"object"</span>)&#123;</span><br><span class="line">                    objClone[key] = deepClone(obj[key]);</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="comment">//如果不是，简单复制</span></span><br><span class="line">                    objClone[key] = obj[key];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> objClone;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>concat������sliceҲ������������������Ƕ��������������</p>
-<h5 id="��2������JSON�����parse��stringify"><a href="#��2������JSON�����parse��stringify" class="headerlink" title="��2������JSON�����parse��stringify"></a>��2������JSON�����parse��stringify</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">##### ��3������JQ��extend������</span><br><span class="line">``` $.extend( [deep ], target, object1 [, objectN ] )</span><br></pre></td></tr></table></figure>
-<p>deep��ʾ�Ƿ������ΪtrueΪ�����Ϊfalse����Ϊǳ����<br>target Object���� Ŀ�������������ĳ�Ա���Խ������ӵ��ö����ϡ�<br>object1  objectN��ѡ�� Object���� ��һ���Լ���N�����ϲ��Ķ���<br>let a=[0,1,[2,3],4],<br>    b=$.extend(true,[],a);<br>a[0]=1;<br>a[2][0]=1;<br>console.log(a,b);</p>
+<p>concat方法与slice也存在这样的情况，他们都不是真正的深拷贝</p>
+<h5 id="（2）借用JSON对象的parse和stringify"><a href="#（2）借用JSON对象的parse和stringify" class="headerlink" title="（2）借用JSON对象的parse和stringify"></a>（2）借用JSON对象的parse和stringify</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">##### （3）借用JQ的extend方法。</span><br><span class="line">``` $.extend( [deep ], target, object1 [, objectN ] )</span><br></pre></td></tr></table></figure>
+<p>deep表示是否深拷贝，为true为深拷贝，为false，则为浅拷贝<br>target Object类型 目标对象，其他对象的成员属性将被附加到该对象上。<br>object1  objectN可选。 Object类型 第一个以及第N个被合并的对象。<br>let a=[0,1,[2,3],4],<br>    b=$.extend(true,[],a);<br>a[0]=1;<br>a[2][0]=1;<br>console.log(a,b);</p>
 <blockquote>
-<p>�����̨������һ�����ݣ�����Ҫ����������������������˿�������£�����û�취��ȷ��������Ƿ�����������Ҳ��Ҫʹ�ã�ֱ���޸Ŀ��ܻ�����������⣬����ܰ������ȫ���ĵ�ȥ�������ݣ�����ʵ�������ʹ�������</p>
+<p>例如后台返回了一堆数据，你需要对这堆数据做操作，但多人开发情况下，你是没办法明确这堆数据是否有其它功能也需要使用，直接修改可能会造成隐性问题，深拷贝能帮你更安全安心的去操作数据，根据实际情况来使用深拷贝。</p>
 </blockquote>
 
           
@@ -1979,7 +1979,7 @@ git remote add origin https://github.com/guyibang/TEST2.git将本地仓库和远
       else if (!isArchive && !isCategory && !isTag) { //is index page
         var titles = [] //array to titles
 
-        var postsstr = 'titles.push("�����ǳ����");titles.push("浏览器的渲染过程");titles.push("Canvas");titles.push("CSS水平垂直居中");titles.push("html+css常见问题总结");titles.push("js中DOM的属性和操作");titles.push("浮动和清除");titles.push("搭建博客记录");' //if you have a better way to get titles of posts, please change it
+        var postsstr = 'titles.push("深拷贝和浅拷贝");titles.push("浏览器的渲染过程");titles.push("Canvas");titles.push("CSS水平垂直居中");titles.push("html+css常见问题总结");titles.push("js中DOM的属性和操作");titles.push("浮动和清除");titles.push("搭建博客记录");' //if you have a better way to get titles of posts, please change it
         eval(postsstr)
 
         var promises = titles.map(function (title) {
