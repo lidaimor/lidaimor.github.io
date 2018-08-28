@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-08-28T17:37:34.276Z</updated>
+  <updated>2018-08-28T17:54:54.191Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>渐进增强和优雅降级</title>
+    <link href="http://yoursite.com/2018/08/29/%E6%B8%90%E8%BF%9B%E5%A2%9E%E5%BC%BA%E5%92%8C%E4%BC%98%E9%9B%85%E9%99%8D%E7%BA%A7/"/>
+    <id>http://yoursite.com/2018/08/29/渐进增强和优雅降级/</id>
+    <published>2018-08-28T17:44:58.000Z</published>
+    <updated>2018-08-28T17:54:54.191Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="渐进增强（progressive-enhancement）"><a href="#渐进增强（progressive-enhancement）" class="headerlink" title="渐进增强（progressive enhancement）"></a>渐进增强（progressive enhancement）</h3><blockquote><p>针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验。（从被所有浏览器支持的基本功能开始，逐步地添加那些只有新式浏览器才支持的功能，向页面添加无害于基础浏览器的额外样式和功能。当浏览器支持时，它们会自动地呈现出来并发挥作用。）</p></blockquote><h3 id="优雅降级（graceful-degradation）"><a href="#优雅降级（graceful-degradation）" class="headerlink" title="优雅降级（graceful degradation）"></a>优雅降级（graceful degradation）</h3><blockquote><p>一开始就构建完整的功能，然后再针对低版本浏览器进行兼容。（Web站点在所有新式浏览器中都能正常工作，如果用户使用的是老式浏览器，则代码会检查以确认它们是否能正常工作。由于IE独特的盒模型布局问题，针对不同版本的IE的hack实践过优雅降级了，为那些无法支持功能的浏览器增加候选方案，使之在旧式浏览器上以某种形式降级体验却不至于完全失效。）<br>区别：优雅降级是从复杂的现状开始，并试图减少用户体验的供给，而渐进增强则是从一个非常基础的、能够起作用的版本开始，并不断扩充，以适应未来环境的需要。</p></blockquote><ul><li><p>渐进增强观点：</p><blockquote><p>渐进增强观点认为应该关注于内容本身。内容是我们建立网站的诱因，有的网站展示它，有的则收集它，有的寻求、有的操作，还有的网站甚至包含以上的种种，但相同点是他们全都涉及到内容，这使得“渐进增强”成为一种更为合理的设计范例。这也是它立即被Yahoo!所采纳并用以构建其“分级式浏览器支持（Graded Browser Support)“策略的原因所在。</p></blockquote></li><li><p>优雅降级观点：</p><blockquote><p>优雅降级观点认为应该针对那些最高级、最完善的浏览器来设计网站。而将那些被认为“过时”或有功能缺失的浏览器下的测试工作安排在开发周期的最后阶段，并把测试对象限定为主流浏览器（如IE、Mozilla等）的前一个版本。<br>在这种设计范例下，旧版的浏览器被认为仅能提供“简陋却无妨（poor,but passable)”的浏览体验。你可以做一些小的调整来适应某个特定的浏览器。但由于它们并非我们所关注的焦点，因此除了修复较大的错误之外，其它的差异将被直接忽略。</p></blockquote></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;渐进增强（progressive-enhancement）&quot;&gt;&lt;a href=&quot;#渐进增强（progressive-enhancement）&quot; class=&quot;headerlink&quot; title=&quot;渐进增强（progressive enhancement）&quot;&gt;&lt;/a
+      
+    
+    </summary>
+    
+      <category term="CSS" scheme="http://yoursite.com/categories/CSS/"/>
+    
+    
+      <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
+    
+  </entry>
   
   <entry>
     <title>深拷贝和浅拷贝</title>
@@ -172,9 +197,9 @@ Safari和Chrome都使
       <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
     
     
-      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
-    
       <category term="DOM" scheme="http://yoursite.com/tags/DOM/"/>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
     
   </entry>
   
