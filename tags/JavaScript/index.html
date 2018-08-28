@@ -358,7 +358,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -380,7 +380,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -749,7 +749,26 @@
 
 </body>
 </html>
- Promise.all(promises).then(function (counts) {
+'.length > 0
+
+      if (isPost) { //is article page
+        var title = ''
+        var doc = articles.doc(title)
+
+        getCount(doc, true).then(appendCountTo($('.post-meta')))
+      }
+      else if (!isArchive && !isCategory && !isTag) { //is index page
+        var titles = [] //array to titles
+
+        var postsstr = 'titles.push("JavaScript的运行机制");titles.push("深拷贝和浅拷贝");titles.push("js中DOM的属性和操作");' //if you have a better way to get titles of posts, please change it
+        eval(postsstr)
+
+        var promises = titles.map(function (title) {
+          return articles.doc(title)
+        }).map(function (doc) {
+          return getCount(doc)
+        })
+        Promise.all(promises).then(function (counts) {
           var metas = $('.post-meta')
           counts.forEach(function (val, idx) {
             appendCountTo(metas[idx])(val)
