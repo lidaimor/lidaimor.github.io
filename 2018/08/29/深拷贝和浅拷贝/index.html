@@ -113,7 +113,7 @@
 <meta property="og:site_name" content="Lemon">
 <meta property="og:description" content="浅拷贝和深拷贝 浅拷贝：假设B复制了A，当修改A时，如果B也跟着变了，说明这是浅拷贝 深拷贝：如果B不发生改变，说明这是浅拷贝 基本类型–名值存储在栈内存中 引用数据类型–名存在栈内存中，值存在于堆内存中 深拷贝的三种方法：深拷贝，是拷贝对象各个层级的属性  （1）递归1234567891011121314151617function deepClone(obj)&amp;#123;    let obj">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-28T17:34:52.283Z">
+<meta property="og:updated_time" content="2018-08-28T17:37:34.276Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深拷贝和浅拷贝">
 <meta name="twitter:description" content="浅拷贝和深拷贝 浅拷贝：假设B复制了A，当修改A时，如果B也跟着变了，说明这是浅拷贝 深拷贝：如果B不发生改变，说明这是浅拷贝 基本类型–名值存储在栈内存中 引用数据类型–名存在栈内存中，值存在于堆内存中 深拷贝的三种方法：深拷贝，是拷贝对象各个层级的属性  （1）递归1234567891011121314151617function deepClone(obj)&amp;#123;    let obj">
@@ -386,7 +386,7 @@
 </blockquote>
 <h5 id="（3）借用JQ的extend方法。"><a href="#（3）借用JQ的extend方法。" class="headerlink" title="（3）借用JQ的extend方法。"></a>（3）借用JQ的extend方法。</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$.extend( [deep ], target, object1 [, objectN ] )</span><br><span class="line">deep表示是否深拷贝，为<span class="literal">true</span>为深拷贝，为<span class="literal">false</span>，则为浅拷贝</span><br><span class="line">target <span class="built_in">Object</span>类型 目标对象，其他对象的成员属性将被附加到该对象上。</span><br><span class="line">object1  objectN可选。 <span class="built_in">Object</span>类型 第一个以及第N个被合并的对象。</span><br><span class="line"><span class="keyword">let</span> a=[<span class="number">0</span>,<span class="number">1</span>,[<span class="number">2</span>,<span class="number">3</span>],<span class="number">4</span>],</span><br><span class="line">    </span><br><span class="line">b=$.extend(<span class="literal">true</span>,[],a);</span><br><span class="line"></span><br><span class="line">a[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">a[<span class="number">2</span>][<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a,b);</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>例如后台返回了一堆数据，你需要对这堆数据做操作，但多人开发情况下，你是没办法明确这堆数据是否有其它功能也需要使用，<br>直接修改可能会造成隐性问题，深拷贝能帮你更安全安心的去操作数据，根据实际情况来使用深拷贝。</p>
+<p>例如后台返回了一堆数据，你需要对这堆数据做操作，但多人开发情况下，你是没办法明确这堆数据是否有其它功能也需要使用，直接修改可能会造成隐性问题，深拷贝能帮你更安全安心的去操作数据，根据实际情况来使用深拷贝。</p>
 </blockquote>
 
       
