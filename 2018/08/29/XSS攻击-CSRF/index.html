@@ -105,18 +105,18 @@
 
 
 
-<meta name="description" content="XSS攻击1、 一旦在DOM解析过程成出现不在预期内的改变（JS代码执行或样式大量变化时），就可能发生XSS攻击2、 XSS分为反射型XSS，存储型XSS和DOM XSS3、 反射型XSS是在将XSS代码放在URL中，将参数提交到服务器。服务器解析后响应，在响应结果中存在XSS代码，最终通过浏览器解析执行。4、 存储型XSS是将XSS代码存储到服务端（数据库、内存、文件系统等），在下次请求同一个页">
+<meta name="description" content="XSS攻击 一旦在DOM解析过程成出现不在预期内的改变（JS代码执行或样式大量变化时），就可能发生XSS攻击 XSS分为反射型XSS，存储型XSS和DOM XSS 反射型XSS是在将XSS代码放在URL中，将参数提交到服务器。服务器解析后响应，在响应结果中存在XSS代码，最终通过浏览器解析执行。 存储型XSS是将XSS代码存储到服务端（数据库、内存、文件系统等），在下次请求同一个页面时就不需要带上">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="XSS攻击+CSRF攻击">
 <meta property="og:url" content="https://github.com/lidaimor/lidaimor.github.io/2018/08/29/XSS攻击-CSRF/index.html">
 <meta property="og:site_name" content="Lemon">
-<meta property="og:description" content="XSS攻击1、 一旦在DOM解析过程成出现不在预期内的改变（JS代码执行或样式大量变化时），就可能发生XSS攻击2、 XSS分为反射型XSS，存储型XSS和DOM XSS3、 反射型XSS是在将XSS代码放在URL中，将参数提交到服务器。服务器解析后响应，在响应结果中存在XSS代码，最终通过浏览器解析执行。4、 存储型XSS是将XSS代码存储到服务端（数据库、内存、文件系统等），在下次请求同一个页">
+<meta property="og:description" content="XSS攻击 一旦在DOM解析过程成出现不在预期内的改变（JS代码执行或样式大量变化时），就可能发生XSS攻击 XSS分为反射型XSS，存储型XSS和DOM XSS 反射型XSS是在将XSS代码放在URL中，将参数提交到服务器。服务器解析后响应，在响应结果中存在XSS代码，最终通过浏览器解析执行。 存储型XSS是将XSS代码存储到服务端（数据库、内存、文件系统等），在下次请求同一个页面时就不需要带上">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-29T09:37:59.408Z">
+<meta property="og:updated_time" content="2018-08-29T09:41:46.569Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="XSS攻击+CSRF攻击">
-<meta name="twitter:description" content="XSS攻击1、 一旦在DOM解析过程成出现不在预期内的改变（JS代码执行或样式大量变化时），就可能发生XSS攻击2、 XSS分为反射型XSS，存储型XSS和DOM XSS3、 反射型XSS是在将XSS代码放在URL中，将参数提交到服务器。服务器解析后响应，在响应结果中存在XSS代码，最终通过浏览器解析执行。4、 存储型XSS是将XSS代码存储到服务端（数据库、内存、文件系统等），在下次请求同一个页">
+<meta name="twitter:description" content="XSS攻击 一旦在DOM解析过程成出现不在预期内的改变（JS代码执行或样式大量变化时），就可能发生XSS攻击 XSS分为反射型XSS，存储型XSS和DOM XSS 反射型XSS是在将XSS代码放在URL中，将参数提交到服务器。服务器解析后响应，在响应结果中存在XSS代码，最终通过浏览器解析执行。 存储型XSS是将XSS代码存储到服务端（数据库、内存、文件系统等），在下次请求同一个页面时就不需要带上">
 
 
 
@@ -402,13 +402,31 @@
       
 
       
-        <h2 id="XSS攻击"><a href="#XSS攻击" class="headerlink" title="XSS攻击"></a>XSS攻击</h2><p>1、 一旦在DOM解析过程成出现不在预期内的改变（JS代码执行或样式大量变化时），就可能发生XSS攻击<br>2、 XSS分为反射型XSS，存储型XSS和DOM XSS<br>3、 反射型XSS是在将XSS代码放在URL中，将参数提交到服务器。服务器解析后响应，在响应结果中存在XSS代码，最终通过浏览器解析执行。<br>4、 存储型XSS是将XSS代码存储到服务端（数据库、内存、文件系统等），在下次请求同一个页面时就不需要带上XSS代码了，而是从服务器读取。<br>5、 DOM XSS的发生主要是在JS中使用eval造成的，所以应当避免使用eval语句。<br>6、 XSS危害有盗取用户cookie，通过JS或CSS改变样式，DDos造成正常用户无法得到服务器响应。<br>7、 XSS代码的预防主要通过对数据解码，再过滤掉危险标签、属性和事件等。</p>
-<h3 id="XSS危害"><a href="#XSS危害" class="headerlink" title="XSS危害"></a>XSS危害</h3><p>1、 通过document.cookie盗取cookie<br>2、 使用js或css破坏页面正常的结构与样式<br>3、 流量劫持（通过访问某段具有<code>window.location.href</code>定位到其他页面）<br>4、 Dos攻击：利用合理的客户端请求来占用过多的服务器资源，从而使合法用户无法得到服务器响应。<br>5、 利用iframe、frame、XMLHttpRequest或上述Flash等方式，以（被攻击）用户的身份执行一些管理动作，或执行一些一般的如发微博、加好友、发私信等操作。<br>6、 利用可被攻击的域受到其他域信任的特点，以受信任来源的身份请求一些平时不允许的操作，如进行不当的投票活动。</p>
-<h3 id="XSS防御"><a href="#XSS防御" class="headerlink" title="XSS防御"></a>XSS防御</h3><blockquote>
-<p>从以上的反射型和DOM XSS攻击可以看出，我们不能原样的将用户输入的数据直接存到服务器，需要对数据进行一些处理。以上的代码出现的一些问题如下：<br>1、 没有过滤危险的DOM节点。如具有执行脚本能力的script, 具有显示广告和色情图片的img, 具有改变样式的link, style, 具有内嵌页面的iframe, frame等元素节点。<br>2、 没有过滤危险的属性节点。如事件, <code>style, src, href</code>等<br>3、 没有对cookie设置httpOnly。</p>
+        <h2 id="XSS攻击"><a href="#XSS攻击" class="headerlink" title="XSS攻击"></a>XSS攻击</h2><ul>
+<li>一旦在DOM解析过程成出现不在预期内的改变（JS代码执行或样式大量变化时），就可能发生XSS攻击</li>
+<li>XSS分为反射型XSS，存储型XSS和DOM XSS</li>
+<li>反射型XSS是在将XSS代码放在URL中，将参数提交到服务器。服务器解析后响应，在响应结果中存在XSS代码，最终通过浏览器解析执行。</li>
+<li>存储型XSS是将XSS代码存储到服务端（数据库、内存、文件系统等），在下次请求同一个页面时就不需要带上XSS代码了，而是从服务器读取。</li>
+<li>DOM XSS的发生主要是在JS中使用eval造成的，所以应当避免使用eval语句。</li>
+<li>XSS危害有盗取用户cookie，通过JS或CSS改变样式，DDos造成正常用户无法得到服务器响应。</li>
+<li>XSS代码的预防主要通过对数据解码，再过滤掉危险标签、属性和事件等。<h3 id="XSS危害"><a href="#XSS危害" class="headerlink" title="XSS危害"></a>XSS危害</h3></li>
+<li>通过document.cookie盗取cookie</li>
+<li>使用js或css破坏页面正常的结构与样式</li>
+<li>流量劫持（通过访问某段具有<code>window.location.href</code>定位到其他页面）</li>
+<li>Dos攻击：利用合理的客户端请求来占用过多的服务器资源，从而使合法用户无法得到服务器响应。</li>
+<li>利用iframe、frame、XMLHttpRequest或上述Flash等方式，以（被攻击）用户的身份执行一些管理动作，或执行一些一般的如发微博、加好友、发私信等操作。</li>
+<li>利用可被攻击的域受到其他域信任的特点，以受信任来源的身份请求一些平时不允许的操作，如进行不当的投票活动。<h3 id="XSS防御"><a href="#XSS防御" class="headerlink" title="XSS防御"></a>XSS防御</h3><blockquote>
+<p>从以上的反射型和DOM XSS攻击可以看出，我们不能原样的将用户输入的数据直接存到服务器，需要对数据进行一些处理。以上的代码出现的一些问题如下：</p>
 </blockquote>
-<h4 id="一-对cookie的保护"><a href="#一-对cookie的保护" class="headerlink" title="一.对cookie的保护"></a>一.对cookie的保护</h4><p>1、 对重要的cookie设置<code>httpOnly</code>, 防止客户端通过<code>document.cookie</code>读取cookie。服务端可以设置此字段。</p>
-<h4 id="二-对用户输入数据的处理"><a href="#二-对用户输入数据的处理" class="headerlink" title="二.对用户输入数据的处理"></a>二.对用户输入数据的处理</h4><p>2、 编码：不能对用户输入的内容都保持原样，对用户输入的数据进行字符实体编码。对于字符实体的概念可以参考文章底部给出的参考链接。<br>3、 解码：原样显示内容的时候必须解码，不然显示不到内容了。<br>4、 过滤：把输入的一些不合法的东西都过滤掉，从而保证安全性。如移除用户上传的DOM属性，如onerror，移除用户上传的Style节点，iframe, script节点等。</p>
+</li>
+<li>没有过滤危险的DOM节点。如具有执行脚本能力的script, 具有显示广告和色情图片的img, 具有改变样式的link, style, 具有内嵌页面的iframe, frame等元素节点。</li>
+<li>没有过滤危险的属性节点。如事件, <code>style, src, href</code>等</li>
+<li>没有对cookie设置httpOnly。<h4 id="一-对cookie的保护"><a href="#一-对cookie的保护" class="headerlink" title="一.对cookie的保护"></a>一.对cookie的保护</h4></li>
+<li>对重要的cookie设置<code>httpOnly</code>, 防止客户端通过<code>document.cookie</code>读取cookie。服务端可以设置此字段。<h4 id="二-对用户输入数据的处理"><a href="#二-对用户输入数据的处理" class="headerlink" title="二.对用户输入数据的处理"></a>二.对用户输入数据的处理</h4></li>
+<li>编码：不能对用户输入的内容都保持原样，对用户输入的数据进行字符实体编码。对于字符实体的概念可以参考文章底部给出的参考链接。</li>
+<li>解码：原样显示内容的时候必须解码，不然显示不到内容了。</li>
+<li>过滤：把输入的一些不合法的东西都过滤掉，从而保证安全性。如移除用户上传的DOM属性，如onerror，移除用户上传的Style节点，iframe, script节点等。</li>
+</ul>
 <h2 id="CSRF攻击攻击原理及过程如下："><a href="#CSRF攻击攻击原理及过程如下：" class="headerlink" title="CSRF攻击攻击原理及过程如下："></a>CSRF攻击攻击原理及过程如下：</h2><blockquote>
 <p>CSRF跨站点请求伪造<code>(Cross—Site Request Forgery)</code>，跟XSS攻击一样，存在巨大的危害性，你可以这样来理解：<br>攻击者盗用了你的身份，以你的名义发送恶意请求，对服务器来说这个请求是完全合法的，但是却完成了攻击者所期望的一个操作，比如以你的名义发送邮件、发消息，盗取你的账号，添加系统管理员，甚至于购买商品、虚拟货币转账等。 </p>
 </blockquote>
