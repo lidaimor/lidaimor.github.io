@@ -392,7 +392,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1100,7 +1100,26 @@
 
 </body>
 </html>
-'.length > 0
+(el).append(
+            $('<span>').addClass('post-visitors-count').append(
+              $('<span>').addClass('post-meta-divider').text('|')
+            ).append(
+              $('<span>').addClass('post-meta-item-icon').append(
+                $('<i>').addClass('fa fa-users')
+              )
+              ).append($('<span>').text('阅读次数 ' + count))
+          )
+        }
+      }
+
+      var db = firebase.firestore()
+      var articles = db.collection('articles')
+
+      //https://hexo.io/zh-tw/docs/variables.html
+      var isPost = ''.length > 0
+      var isArchive = '' === 'true'
+      var isCategory = ''.length > 0
+      var isTag = ''.length > 0
 
       if (isPost) { //is article page
         var title = ''
@@ -1111,7 +1130,7 @@
       else if (!isArchive && !isCategory && !isTag) { //is index page
         var titles = [] //array to titles
 
-        var postsstr = 'titles.push("JavaScript的运行机制");titles.push("深拷贝和浅拷贝");titles.push("js中DOM的属性和操作");' //if you have a better way to get titles of posts, please change it
+        var postsstr = 'titles.push("XSS攻击+CSRF攻击");titles.push("JavaScript的运行机制");titles.push("深拷贝和浅拷贝");titles.push("js中DOM的属性和操作");' //if you have a better way to get titles of posts, please change it
         eval(postsstr)
 
         var promises = titles.map(function (title) {
