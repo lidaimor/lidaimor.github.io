@@ -113,7 +113,7 @@
 <meta property="og:site_name" content="Lemon">
 <meta property="og:description" content="浏览器输入url，浏览器主进程接管，开一个下载线程，然后进行 http请求（略去DNS查询，IP寻址等等操作），然后等待响应，获取内容，随后将内容通过RendererHost接口转交给Renderer进程 浏览器是多线程的，js是单线程的 相比于单进程浏览器，多进程有如下优点： 避免单个page crash影响整个浏览器 避免第三方插件crash影响整个浏览器 多进程充分利用多核优势 方便使用沙">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-28T18:44:18.329Z">
+<meta property="og:updated_time" content="2018-08-29T07:54:35.910Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript的运行机制">
 <meta name="twitter:description" content="浏览器输入url，浏览器主进程接管，开一个下载线程，然后进行 http请求（略去DNS查询，IP寻址等等操作），然后等待响应，获取内容，随后将内容通过RendererHost接口转交给Renderer进程 浏览器是多线程的，js是单线程的 相比于单进程浏览器，多进程有如下优点： 避免单个page crash影响整个浏览器 避免第三方插件crash影响整个浏览器 多进程充分利用多核优势 方便使用沙">
@@ -440,11 +440,10 @@
 <h3 id="如何变成复合图层（硬件加速）"><a href="#如何变成复合图层（硬件加速）" class="headerlink" title="如何变成复合图层（硬件加速）"></a>如何变成复合图层（硬件加速）</h3>将该元素变成一个复合图层，就是传说中的硬件加速技术<br>最常用的方式：translate3d、translateZ<br>opacity属性/过渡动画（需要动画执行的过程中才会创建合成层，动画没有开始或结束后元素还会回到之前的状态）<br>will-chang属性（这个比较偏僻），一般配合opacity与translate使用（而且经测试，除了上述可以引发硬件加速的属性外，其它属性并不会变成复合层），<br>作用是提前告诉浏览器要变化，这样浏览器会开始做一些优化工作（这个最好用完后就释放）<br><video><iframe><canvas><webgl>等元素<br>其它，譬如以前的flash插件<h3 id="absolute和硬件加速的区别"><a href="#absolute和硬件加速的区别" class="headerlink" title="absolute和硬件加速的区别"></a>absolute和硬件加速的区别</h3><blockquote>
 <p>absolute虽然可以脱离普通文档流，但是无法脱离默认复合层。所以，就算absolute中信息改变时不会改变普通文档流中render树，<br>但是，浏览器最终绘制时，是整个复合层绘制的，所以absolute中信息的改变，仍然会影响整个复合层的绘制。<br>（浏览器会重绘它，如果复合层中内容多，absolute带来的绘制信息变化过大，资源消耗是非常严重的）<br>而硬件加速直接就是在另一个复合层了（另起炉灶），所以它的信息改变不会影响默认复合层<br>（当然了，内部肯定会影响属于自己的复合层），仅仅是引发最后的合成（输出视图）</p>
 </blockquote>
-<h3 id="复合图层的作用？"><a href="#复合图层的作用？" class="headerlink" title="复合图层的作用？"></a>复合图层的作用？</h3>一般一个元素开启硬件加速后会变成复合图层，可以独立于普通文档流中，改动后可以避免整个页面重绘，提升性能<br>但是尽量不要大量使用复合图层，否则由于资源消耗过度，页面反而会变的更卡<br>硬件加速时请使用index<br>使用硬件加速时，尽可能的使用index，防止浏览器默认给后续的元素创建复合层渲染</webgl></canvas></iframe></video></li>
-<li>具体的原理时这样的：<blockquote>
-<p><strong>webkit CSS3中，如果这个元素添加了硬件加速，并且index层级比较低，<br>那么在这个元素的后面其它元素（层级比这个元素高的，或者相同的，并且releative或absolute属性相同的），<br>会默认变为复合层渲染，如果处理不当会极大的影响性能</strong><br>简单点理解，其实可以认为是一个隐式合成的概念：如果a是一个复合图层，而且b在a上面，那么b也会被隐式转为一个复合图层</p>
+<h3 id="复合图层的作用？"><a href="#复合图层的作用？" class="headerlink" title="复合图层的作用？"></a>复合图层的作用？</h3>一般一个元素开启硬件加速后会变成复合图层，可以独立于普通文档流中，改动后可以避免整个页面重绘，提升性能<br>但是尽量不要大量使用复合图层，否则由于资源消耗过度，页面反而会变的更卡<br>硬件加速时请使用index<br>使用硬件加速时，尽可能的使用index，防止浏览器默认给后续的元素创建复合层渲染<blockquote>
+<p>具体的原理时这样的：<br><strong>webkit CSS3中，如果这个元素添加了硬件加速，并且index层级比较低，<br>那么在这个元素的后面其它元素（层级比这个元素高的，或者相同的，并且releative或absolute属性相同的），<br>会默认变为复合层渲染，如果处理不当会极大的影响性能</strong><br>简单点理解，其实可以认为是一个隐式合成的概念：如果a是一个复合图层，而且b在a上面，那么b也会被隐式转为一个复合图层</p>
 </blockquote>
-</li>
+</webgl></canvas></iframe></video></li>
 </ul>
 
       
@@ -489,6 +488,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/29/Vue双向数据绑定原理/" rel="prev" title="Vue双向数据绑定原理">
+                Vue双向数据绑定原理 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -569,7 +572,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -580,7 +583,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -591,7 +594,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
